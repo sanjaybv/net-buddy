@@ -1,4 +1,4 @@
-package bench
+package hello
 
 import (
 	"bytes"
@@ -31,5 +31,5 @@ func gibberish(command *bot.Cmd) (msg string, err error) {
 func init() {
 
 	fmt.Println("init")
-	bot.RegisterCommand("bench", "testing bot.", "blabber", gibberish)
+	bot.RegisterCommand("hello", "testing bot.", "blabber", gibberish)
 }

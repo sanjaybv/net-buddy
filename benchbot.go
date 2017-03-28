@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-chat-bot/bot/slack"
 	_ "github.com/go-chat-bot/plugins/catgif"
-	_ "github.com/sanjaybv/random/plugins/bench"
+	_ "github.com/sanjaybv/net-buddy/plugins/hello"
 )
 
 func main() {
