@@ -17,15 +17,13 @@ var config *ssh.ClientConfig
 
 func hello(command *bot.Cmd) (msg string, err error) {
 	msg = fmt.Sprintf("Hello, %s!", command.User.RealName)
-	return
-}
-
-func gibberish(command *bot.Cmd) (msg string, err error) {
-
 	fmt.Println("cmd: " + command.Command)
 	fmt.Println("msg: " + command.Message)
 	fmt.Println("arg: ", command.Args)
-	msg = "asdf awrf asdf asf sf"
+	return
+}
+
+func ping(command *bot.Cmd) (msg string, err error) {
 
 	cmd := exec.Command("ping", "-c 4", "127.0.0.1")
 	var out bytes.Buffer
@@ -88,10 +86,10 @@ func init() {
 		hello)
 
 	bot.RegisterCommand(
-		"gibber",
-		"testing bot.",
-		"blabber",
-		gibberish)
+		"ping",
+		"Ping to a given host.",
+		"127.0.0.1",
+		ping)
 
 	bot.RegisterCommand(
 		"reach",
