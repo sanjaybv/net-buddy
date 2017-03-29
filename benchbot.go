@@ -9,5 +9,7 @@ import (
 )
 
 func main() {
+
+	// do not forget to supply the slack token
 	slack.Run(os.Getenv("SLACK_TOKEN"))
 }
