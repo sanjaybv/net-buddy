@@ -25,12 +25,14 @@ func hello(command *bot.Cmd) (msg string, err error) {
 
 func ping(command *bot.Cmd) (msg string, err error) {
 
+	log.Println("pinging")
 	cmd := exec.Command("ping", "-c 4", "127.0.0.1")
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err = cmd.Run()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return "", errors.Wrap(err, "ping error")
 	}
 	msg += "\n# pinging \n" + "``` \n" + out.String() + "\n ```"
 
